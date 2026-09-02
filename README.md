@@ -1,2 +1,6 @@
 # acantharia-niche-partitioning
-Codes and workflows for Kittell-Porter &amp; Blanco-Bercial, 2026
+Scripts used for the manuscript "Vertical niche partitioning among acantharian molecular clades projected across evolutionary history"
+SILVA v138.1:  https://mothur.org/blog/2021/SILVA-v138_1-reference-files/
+PR2 v5.0.0:  https://github.com/pr2database/pr2database/releases/tag/v5.0.0
+Blanco-Berical et al., 2022 Github:  https://github.com/blancobercial/Protist_Time_Series
+BATS data:  https://www.bco-dmo.org/project/2124
