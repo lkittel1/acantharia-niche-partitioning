@@ -1,2 +1,2 @@
-# Vertical-niche-partitioning-among-acantharian-molecular-clades-projected-across-evolutionary-history
+# acantharia-niche-partitioning
 Codes and workflows for Kittell-Porter &amp; Blanco-Bercial, 2026
