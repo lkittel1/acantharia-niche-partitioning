@@ -1,0 +1,192 @@
+Protocol Updated 8 Apr 2026
+
+# BATS data downloaded from https://erddap.bco-dmo.org/erddap/files/bcodmo_dataset_3782_v8/ and https://datadocs.bco-dmo.org/file/oA1n5EGiPDZg54/3918_v11_bats_ctd_2010-2019.csv
+
+# Retrieved PR2 5.0.0 mothur fasta and taxonomy files from https://github.com/pr2database/pr2database/releases (not aligned)
+
+wget -O - https://github.com/pr2database/pr2database/releases/download/v5.0.0/pr2_version_5.0.0_SSU_mothur.fasta.gz | gunzip > pr2_version_5.0.0_SSU_mothur.fasta
+
+wget -O - https://github.com/pr2database/pr2database/releases/download/v5.0.0/pr2_version_5.0.0_SSU_mothur.tax.gz | gunzip > pr2_version_5.0.0_SSU_mothur.tax
+
+
+	Output File Names:
+		pr2_version_5.0.0_SSU_mothur.tax
+		pr2_version_5.0.0_SSU_mothur.fasta
+	
+
+# Retrieved Silva v138_1 from https://mothur.org/wiki/silva_reference_files/
+
+wget -O - https://mothur.s3.us-east-2.amazonaws.com/wiki/silva.nr_v138_1.tgz | tar -xzf silva.nr_v138_1.tgz
+
+	Output File Names:
+		silva.nr_v138_1.tax
+		silva.nr_v138_1.align
+
+
+# Change - to _ for mothur and make a copy of pr2_version_5.0.0_SSU_mothur.fasta 
+
+sed 's/-/_/g' pr2_version_5.0.0_SSU_mothur.tax > pr2_version_5.0.0_SSU_mothur_fixed.tax
+
+	
+	Output File Names:
+		pr2_version_5.0.0_SSU_mothur_fixed.tax
+
+sbatch mothursubmit.sh
+	
+	Output File Names:
+		pr2_version_5.0.0_SSU_mothur_fixed.pick.tax
+		pr2_version_5.0.0_SSU_mothur_fixed.pick.tax.accnos
+		pr2_version_5.0.0_SSU_mothur.pick.fasta
+		silva.nr_v138_1.pick.tax
+		silva.nr_v138_1.pick.tax.accnos
+		silva.nr_v138_1.pick.align
+
+
+# Open silva.nr_v138_1.pick.tax and .align AND pr2_version_5.0.0_SSU_mothur_fixed.pick.tax and .fasta in Excel/BBEdit, sorted A-Z to align their rows and removed duplicate species and sequences (kept ambiguous Acantharea IDS like _sp.) and manually fixed .... in SILVA
+
+	Output File Names:
+		NoDupsSILVA.pick.tax
+		NoDupsSILVA.pick.align
+		NoDupsPR2.pick.tax
+		NoDupsPR2.pick.fasta
+
+
+# Use MAFFT v7, --add function to combine/align SILVA and PR2: https://mafft.cbrc.jp/alignment/server/add_sequences.html
+	Existing alignment: NoDupsSILVA.pick.align
+	New sequences: NoDupsPR2.pick.fasta
+
+	Output File Names:
+		PR2SILVA_mafftoutput.fasta
+
+# Manually fixed formatting in BBEdit using \n(?!>)
+
+	Output File Names:
+		SILVAPR2_fixed.fasta
+
+
+# Manually created a constrained newick tree with retained sequence IDs
+
+	Output File Names:
+		LeoTree.newick
+
+git clone https://github.com/stamatak/standard-RAxML.git
+
+cd standard-RAxML
+
+make -f Makefile.PTHREADS.gcc
+
+# created raxml.sbatch and ran 
+sbatch raxml.sbatch
+
+	Output File Names:
+		RAxML_bipartitionsBranchLabels.RAxML_constrained
+		RAxML_bipartitions.RAxML_constrained
+		RAxML_info.RAxML_constrained
+		RAxML_bootstrap.RAxML_constrained
+		RAxML_bestTree.RAxML_constrained
+		PR2_fixed.fasta.reduced
+		raxml_raw.out
+		raxml_raw.err
+
+
+# retrieved OUR data (from Dropbox? How did we do this?): OurData.fasta & OurData.taxonomy
+
+	Output File Names:
+		OurData.fasta.zip
+		OurData.taxonomy.zip
+
+unzip OurData.fasta.zip
+unzip OurData.taxonomy.zip
+
+	Output File Names:
+		OurData.fasta
+		OurData.tax
+
+# Removed all data in parentheses in taxonomy file in Bbedit using \(\d+\) and changed all - to _
+
+
+sed 's/-/_/g' OurData.tax > OurData_fixed.tax
+sed 's/-/_/g' OurData.fasta > OurData_fixed.fasta
+
+
+	Output File Names:
+		OurData_fixed.tax
+
+# Uploaded data.pick.count_table.txt (how did we make this before??)
+
+sed 's/000000000-/000000000_/g' data.pick.count_table.txt > data.pick.count_table.fixed.txt
+
+	Output File Names:
+		data.pick.count_table.fixed.txt
+
+# Made metadata files from B-B 2022 metadata merged with BATS data (B-B_2022_merged_bats.xlsx): depth.txt, density, fluor, POM
+
+	Output File Names:
+		depth.txt
+		density.txt
+		fluor.txt
+		poc.txt
+		pon.txt
+		pop.txt
+		oxygen.txt
+
+sbatch mothur2submit.sh
+	
+	Output File Names:
+		OurData_fixed.pick.tax
+		OurData_fixed.pick.tax.accnos
+		OurData.pick.fasta
+
+# Use MAFFT v7, --add function to combine/align our data to the SILVA/PR2 alignment: https://mafft.cbrc.jp/alignment/server/add_sequences.html a
+	Existing alignment: SILVAPR2_fixed.fasta
+	New sequences: OurData_fixed.pick.fasta
+
+	Output File Names:
+		AllAlignedData_mafftoutput.fasta
+
+# Fixed formatting in Bbedit and manually re-split our data versus SILVA/PR2 data
+
+	Output File Names:
+		OurDataAligned.fasta
+		SILVAPR2DataAligned.fasta
+
+sbatch epang.sh
+sbatch gappasplit.sh
+sbatch gappaexamine.sh
+
+	Output File Names:
+		edpl_list.csv
+		edpl_histogram.csv
+		lwr-list.csv
+		lwr-distribution.csv
+		tree.nexus
+
+# Removed extra jplace files for respective environmental variable
+
+sbatch gappaacdepth.sh #etc. for other variables
+	Output File Names:
+		NominalDepth_imbalances_pearson.nexus
+		NominalDepth_masses_pearson.nexus
+		NominalDepth_imbalances_spearman.nexus
+		NominalDepth_masses_spearman.nexus
+		
+sbatch gappapf.sh 
+	Output File Names:
+		factor_balances.csv
+		factor_taxa.txt
+		factors_tree.nexus
+		factor_edges_1.nexus
+		factor_edges_2.nexus
+		factor_edges_3.nexus
+		factor_edges_4.nexus
+		factor_edges_5.nexus
+		objective_values_1.nexus
+		objective_values_2.nexus
+		objective_values_3.nexus
+		objective_values_4.nexus
+		objective_values_5.nexus
+		
+# calculated GLMs using glm_calculation.R
+
+	Output File Names:
+        factor_glm_coefficients.csv
