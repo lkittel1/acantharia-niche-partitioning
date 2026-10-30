@@ -1,3 +1,4 @@
+[![OCE-2227766](https://img.shields.io/badge/NSF-1829318-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2227766)
 # acantharia-niche-partitioning
 Scripts used for the manuscript "Vertical niche partitioning among acantharian molecular clades projected across evolutionary history"
 SILVA v138.1:  https://mothur.org/blog/2021/SILVA-v138_1-reference-files/
