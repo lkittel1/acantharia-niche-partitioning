@@ -8,8 +8,8 @@ Blanco-Bercial et al., 2022 Github:  https://github.com/blancobercial/Protist_Ti
 BATS data:  https://www.bco-dmo.org/project/2124</p>
 
 ## Authors and acknowledgment</p>
-Lauren Kittell-Porter and Leocadio Blanco-Bercial
-[Bermuda Institute of Ocean Sciences](https://bios.asu.edu/) – Arizona State University. 17 Biological Station St. George’s, GE 01, Bermuda
+Lauren Kittell-Porter and Leocadio Blanco-Bercial</n>
+[Bermuda Institute of Ocean Sciences](https://bios.asu.edu/) – Arizona State University. 17 Biological Station St. George’s, GE 01, Bermuda</p>
 LBB acknowledges the support of [Simons Foundation International](https://www.sfi.org.bm/)’s [BIOS-SCOPE](https://bios.asu.edu/scope) program.
 
 ## License</p>
