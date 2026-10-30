@@ -18,7 +18,7 @@ LBB acknowledges the support of [Simons Foundation International](https://www.sf
 ## 
 
 ## License</p>
-[GNU General Public License v3.0.](https://github.com/lkittel1/acantharia-niche-partitioning/blob/main/LICENSE)
+[GNU General Public License v3.0.](https://github.com/lkittel1/acantharia-niche-partitioning/blob/main/LICENSE) ##
 
 
 ## Project status
