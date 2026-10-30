@@ -13,8 +13,9 @@ Lauren Kittell-Porter and Leocadio Blanco-Bercial
 LBB acknowledges the support of [Simons Foundation International](https://www.sfi.org.bm/)’s [BIOS-SCOPE](https://bios.asu.edu/scope) program.
 
 License
-Creative Commons Attribution 4.0 International [CC BY4.0].
+GNU General Public License v3.0.
 
-License: CC BY 4.0 CC BY 4.0
 
 Project status
+
+Manuscript in review
