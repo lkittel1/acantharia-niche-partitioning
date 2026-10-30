@@ -1,5 +1,5 @@
 [![OCE-2227766](https://img.shields.io/badge/NSF-1829318-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2227766)
-# acantharia-niche-partitioning</p>
+# Vertical niche partitioning among acantharian molecular clades</p>
 This repository contains data and codes to reproduce the analyses of the paper "Vertical niche partitioning among acantharian molecular clades projected across evolutionary history"</p>
 Manuscript Under Review at Journal of Plankton Research </p>
 
