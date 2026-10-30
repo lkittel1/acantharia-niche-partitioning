@@ -3,5 +3,5 @@
 Scripts used for the manuscript "Vertical niche partitioning among acantharian molecular clades projected across evolutionary history"</p>
 SILVA v138.1:  https://mothur.org/blog/2021/SILVA-v138_1-reference-files/</p>
 PR2 v5.0.0:  https://github.com/pr2database/pr2database/releases/tag/v5.0.0</p>
-Blanco-Berical et al., 2022 Github:  https://github.com/blancobercial/Protist_Time_Series</p>
+Blanco-Bercial et al., 2022 Github:  https://github.com/blancobercial/Protist_Time_Series</p>
 BATS data:  https://www.bco-dmo.org/project/2124</p>
