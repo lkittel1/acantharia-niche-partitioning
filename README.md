@@ -9,7 +9,7 @@ PR2 v5.0.0:  https://github.com/pr2database/pr2database/releases/tag/v5.0.0</p>
 Blanco-Bercial et al., 2022 Github:  https://github.com/blancobercial/Protist_Time_Series</p>
 BATS data:  https://www.bco-dmo.org/project/2124</p>
 
-##Workflow
+## Workflow
 Please follow the steps indicated in the [workflow file](https://github.com/lkittel1/acantharia-niche-partitioning/blob/main/AcanthariaPaperFinalWorkflow.txt) to reproduce the results using the scripts in this repository.
 ##
 
