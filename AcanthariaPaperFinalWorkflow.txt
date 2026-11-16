@@ -89,7 +89,7 @@ sbatch raxml.sbatch
 		raxml_raw.err
 
 
-# retrieved OUR data (from Dropbox? How did we do this?): OurData.fasta & OurData.taxonomy
+# retrieved OUR data: OurData.fasta & OurData.taxonomy
 
 	Output File Names:
 		OurData.fasta.zip
@@ -112,7 +112,7 @@ sed 's/-/_/g' OurData.fasta > OurData_fixed.fasta
 	Output File Names:
 		OurData_fixed.tax
 
-# Uploaded data.pick.count_table.txt (how did we make this before??)
+# Uploaded data.pick.count_table.txt
 
 sed 's/000000000-/000000000_/g' data.pick.count_table.txt > data.pick.count_table.fixed.txt
 
